@@ -154,13 +154,14 @@ int main()
 	int square[max][max] = {};
 	int temp = 0;
 
-	cout << "Chao mung ban den voi game TIC TAC TOE" << endl;
-	cout << "Nhap ten nguoi choi 1:";
-	cin >> name1;
-	cout << "Nhap ten nguoi choi 2:";
-	cin >> name2;
+	cout << "WELCOME TO GAME TIC TAC TOE \n";
+	cout << "ENTER PLAYER 1 NAME: ";
+	cin.get(name1, 20);
+	cout << "ENTER PLAYER 2 NAME: ";
+	cin.ignore();
+	cin.get(name2, 20);
 
-	cout << "Nhap nguoi choi danh truoc "<< endl << "Neu la " << name1 << " nhap 1" << endl << "Neu la " << name2 << " nhap 2" << endl<< "Nhap: ";
+	cout << "INPUT PLAYER FIRST PLAY "<< endl << "IF " << name1 << " INPUT 1" << endl << "IF " << name2 << " INPUT 2" << endl<< "INPUT: ";
 	cin >> isPlay;
 
 	printSquare(square);
