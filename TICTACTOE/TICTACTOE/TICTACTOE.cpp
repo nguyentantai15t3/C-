@@ -9,10 +9,11 @@ using namespace std;
 
 int isPlay ;
 int row, column;
+const int max = 3;
 
 
 // bàn cờ hiện tại
-void printSquare(int square[][3])
+void printSquare(int square[][max])
 {
 	system("cls");
 
@@ -35,7 +36,7 @@ void printSquare(int square[][3])
 } 
 
 // Đánh vào bàn cờ
-void checkPoint(int square[][3])
+void checkPoint(int square[][max])
 {
 	if (isPlay == 1) // lượt người 1
 	{
@@ -62,7 +63,7 @@ void checkPoint(int square[][3])
 } 
 
 // Check hàng ngang
-int checkRow(int square[][3], int x)
+int checkRow(int square[][max], int x)
 {
 	/*if ((square[x][0] == square[x][1]) && (square[x][1] == square[x][2]) && (square[x][1] != 0))
 	{
@@ -70,9 +71,10 @@ int checkRow(int square[][3], int x)
 		else return 2;
 	}
 	else return 0;*/
+
 	int temp = square[x][0]; // gán giá trị tạm = ô đầu tiên của hàng
 	bool isCheck = true;
-	for (int i = 0; i<3; i++)
+	for (int i = 0; i<max; i++)
 	{
 		if (temp != square[x][i] || square[x][i]==0) // so sánh không bằng nhau hoặc có giá trị == 0 thì false
 		{	
@@ -83,7 +85,7 @@ int checkRow(int square[][3], int x)
 }
 
 // Check hàng dọc
-int checkColumn(int square[][3], int y)
+int checkColumn(int square[][max], int y)
 {
 	/*if ((square[0][y] == square[1][y]) && (square[1][y] == square[2][y]) && (square[0][y] != 0))
 	{
@@ -91,9 +93,10 @@ int checkColumn(int square[][3], int y)
 		else return 2;
 	}
 	else return 0;*/
+
 	int temp = square[0][y]; // gán giá trị tạm = ô đầu tiên của cột
 	bool isCheck = true;
-	for (int i = 0; i<3; i++)
+	for (int i = 0; i<max; i++)
 	{
 		if (temp != square[i][y] || square[i][y] == 0) // so sánh không bằng nhau hoặc có giá trị == 0 thì false
 		{
@@ -104,19 +107,28 @@ int checkColumn(int square[][3], int y)
 }
 
 // Check hàng chéo
-int checkCrossRow(int square[][3])
+int checkCrossRow(int square[][max])
 {
-	if ((square[0][0] == square[1][1]) && (square[1][1] == square[2][2]) || (square[2][0] == square[1][1]) && (square[1][1] == square[0][2]))
+	/*if ((square[0][0] == square[1][1]) && (square[1][1] == square[2][2]) || (square[2][0] == square[1][1]) && (square[1][1] == square[0][2]))
 	{
 		if (square[1][1] == 1) return 1;
 		else if (square[1][1] == 2) return 2;
 		else return 0;
 	}
-	else return 0;
+	else return 0;*/
+	int temp1=0, temp2=0; // 2 biến đếm
+	for (int i = 0; i < max; i++)
+	{
+		if (square[i][i] == square[0][0]) temp1++; // so sánh hàng chéo "\"
+		if (square[i][max - 1 - i] == square[0][max-1]) temp2++; // so sánh hàng chéo "/"
+	}
+	if (temp1 == max) return square[0][0];
+	if (temp2 == max) return square[0][max-1];
+	return 0;
 }
 
 // Kiểm tra thắng thua
-int checkResult(int square[][3], int x, int y)
+int checkResult(int square[][max], int x, int y)
 {
 	if ( x!=y && (x == 1 || y == 1)) // tọa độ không nằm trong đường chéo
 	{
@@ -139,7 +151,7 @@ int checkResult(int square[][3], int x, int y)
 int main()
 {
 	char name1[20], name2[20];
-	int square[3][3] = {};
+	int square[max][max] = {};
 	int temp = 0;
 
 	cout << "Chao mung ban den voi game TIC TAC TOE" << endl;
@@ -152,7 +164,7 @@ int main()
 	cin >> isPlay;
 
 	printSquare(square);
-	while (temp < 9) // check win
+	while (temp < (max*max)) // check win
 	{
 		checkPoint(square);
 		int result = checkResult(square,row,column);
@@ -168,7 +180,7 @@ int main()
 		}
 		else temp ++;
 	}
-	if (temp == 9) cout << "Draw" << endl;
+	if (temp == (max*max)) cout << "Draw" << endl;
 
 	system("pause");
 	return 0;
