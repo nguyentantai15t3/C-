@@ -10,6 +10,7 @@ using namespace std;
 int isPlay ;
 int row, column;
 const int max = 3;
+char name1[20], name2[20];
 
 
 // bàn cờ hiện tại
@@ -42,7 +43,7 @@ void checkPoint(int square[][max])
 	{
 		do
 		{
-			cout << " (1) Nhap vi tri danh row - column :";
+			cout << " YOUR TURN PLAY " << name1 << " (1):";
 			cin >> row >> column;
 		} while ((row < 0) || (row > 2) || (column < 0) || (column > 2) || (square[row][column] != 0));  // check vị trị ngoài bàn cờ và đã có giá trị
 		square[row][column] = 1;
@@ -53,7 +54,7 @@ void checkPoint(int square[][max])
 	{
 		do
 		{
-			cout << " (2) Nhap vi tri danh row - column :";
+			cout << " YOUR TURN PLAY " << name2 << " (2):";
 			cin >> row >> column;
 		} while ((row < 0) || (row > 2) || (column < 0) || (column > 2) || (square[row][column] != 0)); // check vị trị ngoài bàn cờ và đã có giá trị
 		square[row ][column] = 2;
@@ -150,26 +151,30 @@ int checkResult(int square[][max], int x, int y)
 
 int main()
 {
-	char name1[20], name2[20];
 	int square[max][max] = {};
 	int temp = 0;
+	int checkPlayorExit;
 
 	cout << "WELCOME TO GAME TIC TAC TOE \n";
+	cout << "Choose your mode: 1-Play Game, Other-To exit game\n";
+	cin >> checkPlayorExit;
+	if (checkPlayorExit != 1) return 0;
+	cin.ignore();
 	cout << "ENTER PLAYER 1 NAME: ";
 	cin.get(name1, 20);
 	cout << "ENTER PLAYER 2 NAME: ";
 	cin.ignore();
 	cin.get(name2, 20);
 
-	cout << "INPUT PLAYER FIRST PLAY "<< endl << "IF " << name1 << " INPUT 1" << endl << "IF " << name2 << " INPUT 2" << endl<< "INPUT: ";
+	cout << "INPUT PLAYER FIRST PLAY " << endl << "IF " << name1 << " INPUT 1" << endl << "IF " << name2 << " INPUT 2" << endl << "INPUT: ";
 	cin >> isPlay;
 
 	printSquare(square);
 	while (temp < (max*max)) // check win
 	{
 		checkPoint(square);
-		int result = checkResult(square,row,column);
-		if (result == 1) 
+		int result = checkResult(square, row, column);
+		if (result == 1)
 		{
 			cout << name1 << " WIN" << endl;
 			break;
@@ -179,7 +184,7 @@ int main()
 			cout << name2 << " WIN" << endl;
 			break;
 		}
-		else temp ++;
+		else temp++;
 	}
 	if (temp == (max*max)) cout << "Draw" << endl;
 
