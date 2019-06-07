@@ -14,7 +14,7 @@ int row, column;
 // bàn cờ hiện tại
 void printSquare(int square[][3])
 {
-	// system("cls");
+	system("cls");
 
 	cout << endl;
 
@@ -64,23 +64,43 @@ void checkPoint(int square[][3])
 // Check hàng ngang
 int checkRow(int square[][3], int x)
 {
-	if ((square[x][0] == square[x][1]) && (square[x][1] == square[x][2]) && (square[x][1] != 0))
+	/*if ((square[x][0] == square[x][1]) && (square[x][1] == square[x][2]) && (square[x][1] != 0))
 	{
 		if (square[x][0] == 1) return 1;
 		else return 2;
 	}
-	else return 0;
+	else return 0;*/
+	int temp = square[x][0]; // gán giá trị tạm = ô đầu tiên của hàng
+	bool isCheck = true;
+	for (int i = 0; i<3; i++)
+	{
+		if (temp != square[x][i] || square[x][i]==0) // so sánh không bằng nhau hoặc có giá trị == 0 thì false
+		{	
+			return 0;
+		}
+	}
+	return temp; // nếu cùng thì trả về giá trị của cột
 }
 
 // Check hàng dọc
 int checkColumn(int square[][3], int y)
 {
-	if ((square[0][y] == square[1][y]) && (square[1][y] == square[2][y]) && (square[0][y] != 0))
+	/*if ((square[0][y] == square[1][y]) && (square[1][y] == square[2][y]) && (square[0][y] != 0))
 	{
 		if (square[0][y] == 1) return 1;
 		else return 2;
 	}
-	else return 0;
+	else return 0;*/
+	int temp = square[0][y]; // gán giá trị tạm = ô đầu tiên của cột
+	bool isCheck = true;
+	for (int i = 0; i<3; i++)
+	{
+		if (temp != square[i][y] || square[i][y] == 0) // so sánh không bằng nhau hoặc có giá trị == 0 thì false
+		{
+			return 0;
+		}
+	}
+	return temp; // nếu cùng thì trả về giá trị của cột
 }
 
 // Check hàng chéo
@@ -128,7 +148,7 @@ int main()
 	cout << "Nhap ten nguoi choi 2:";
 	cin >> name2;
 
-	cout << "Nhap nguoi choi danh truoc,neu la " << name1 << " nhap 1, neu la " << name2 << " nhap 2. Nhap: ";
+	cout << "Nhap nguoi choi danh truoc "<< endl << "Neu la " << name1 << " nhap 1" << endl << "Neu la " << name2 << " nhap 2" << endl<< "Nhap: ";
 	cin >> isPlay;
 
 	printSquare(square);
