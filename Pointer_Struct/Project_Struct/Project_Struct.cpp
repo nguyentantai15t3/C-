@@ -33,7 +33,10 @@ int PrintMenu()
 	cin >> choose;
 	return choose;
 }
+void checkID()
+{
 
+}
 void InputStudient()
 {
 	system("cls");
