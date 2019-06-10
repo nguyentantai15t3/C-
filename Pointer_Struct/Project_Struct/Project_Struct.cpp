@@ -8,6 +8,7 @@
 using namespace std;
 
 void Select(int);
+static int length = 0;
 
 struct Studient
 {
@@ -16,7 +17,7 @@ struct Studient
 	string name;
 };
 
-Studient* studient[MAX];
+Studient* studient = new Studient[MAX];
 
 int PrintMenu()
 {
@@ -35,22 +36,23 @@ int PrintMenu()
 
 void InputStudient()
 {
-	Studient studient;
+	system("cls");
 	cout << "INPUT INFORMATION STUDIENT " << endl;
 	cout << "INPUT ID:";
-	cin >> studient.id;
+	cin >> studient[length].id;
 	cin.ignore();
 	cout << "INPUT NAME:";
-	getline(cin, studient.name);
+	getline(cin, studient[length].name);
 	cout << "INPUT SCORE:";
-	cin >> studient.score;
-	while (studient.score < 0 || studient.score>10)
+	cin >> studient[length].score;
+	while (studient[length].score < 0 || studient[length].score>10)
 	{
 		cout << "ERRO INPUT" << endl;
 		cout << "INPUT SCORE AGAIN:";
-		cin >> studient.score;
+		cin >> studient[length].score;
 	}
 	system("cls");
+	length++;
 	cout << "ADD STUDIENT SUCCESS" << endl;
 	int choose = PrintMenu();
 	Select(choose);
@@ -58,7 +60,15 @@ void InputStudient()
 
 void Display()
 {
-	cout << "This is Display Function " << endl;
+	system("cls");
+	cout << "ID\tNAME\tSCORE" << endl;
+	for (int i = 0; i < length; i++)
+	{
+		cout << studient[i].id << "\t" << studient[i].name << "\t" << studient[i].score << endl;
+	}
+	cout << endl << endl;
+	int choose = PrintMenu();
+	Select(choose);
 }
 
 void SaveToFile()
