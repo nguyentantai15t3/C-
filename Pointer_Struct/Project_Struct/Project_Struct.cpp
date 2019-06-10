@@ -12,9 +12,47 @@ struct Studient
 	string name;
 };
 
-void InputStudient(Studient std[])
+void InputStudient()
 {
+	cout << "This is InputStudient Function " << endl;
+}
 
+void Display()
+{
+	cout << "This is Display Function " << endl;
+}
+
+void SaveToFile()
+{
+	cout << "This is SaveToFile Function " << endl;
+}
+
+void LoadToFile()
+{
+	cout << "This is LoadToFile Function " << endl;
+}
+
+void Select(int select)
+{
+	switch (select)
+	{
+	case 1:
+		InputStudient();
+		break;
+	case 2:
+		Display();
+		break;
+	case 3:
+		SaveToFile();
+		break;
+	case 4:
+		LoadToFile();
+		break;
+	case 0:
+		break;
+	default:
+		break;
+	}
 }
 
 int PrintMenu()
@@ -36,21 +74,7 @@ void main()
 {
 	//Studient std[100];
 	int choose = PrintMenu();
-	switch (choose)
-	{
-	case 1:
-		//InputStudient();
-	case 2:
-		//Display();
-	case 3: 
-		//SaveToFile();
-	case 4:
-		//LoadToFile();
-	case 0:
-		break;
-	default:
-		break;
-	}
+	Select(choose);
 	system("pause");
 }
 
