@@ -4,7 +4,7 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
-#include <vector>
+
 #define MAX 100
 
 using namespace std;
@@ -42,7 +42,7 @@ int CheckID(int id) // check trùng ID
 
 	for (int i = 0; i < length; i++)
 	{
-		if (id == (ptr + i)->id)
+		if (id == (ptr+i)->id)
 		{
 			return false;
 		}
@@ -74,13 +74,13 @@ void InputStudient() // Nhập sinh viên
 		cin >> ptr->score;
 	}
 	system("cls");
-	length++;
+	length++;							// tăng số phần tử lên 1 đơn vị
 	cout << "ADD STUDIENT SUCCESS" << endl;
 	int choose = PrintMenu();			// Quay lại menu
 	Select(choose);						// Kiểm tra lựa chọn
 }
 
-void Display()
+void Display()							// hàm hiển trị danh sách sinh viên
 {
 	Studient* ptr = &studient[0];		// trỏ tới phần tử đầu tiên của struct
 	system("cls");
@@ -94,7 +94,7 @@ void Display()
 	Select(choose);
 }
 
-void SaveToFile(string fileName)		// save file
+void SaveToFile(string fileName)		// save file (tên file lưu)
 {
 	ofstream outFile;
 	outFile.open(fileName);				// mở file_name
