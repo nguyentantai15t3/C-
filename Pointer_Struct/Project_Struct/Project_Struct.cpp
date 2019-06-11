@@ -10,6 +10,7 @@
 using namespace std;
 
 void Select(int);
+void Replace(string &, char, char);
 static int length = 0; // đếm số phần tử của struct
 
 struct Studient
@@ -83,10 +84,10 @@ void Display()
 {
 	Studient* ptr = &studient[0];		// trỏ tới phần tử đầu tiên của struct
 	system("cls");
-	cout << "ID\tNAME\tSCORE" << endl;
+	cout << "ID\tNAME\t\tSCORE" << endl;
 	for (int i = 0; i < length; i++)
 	{
-		cout << (ptr+i)->id << "\t" << (ptr + i)->name << "\t" << (ptr + i)->score << endl;
+		cout << (ptr+i)->id << "\t" << (ptr + i)->name << "\t\t" << (ptr + i)->score << endl;
 	}
 	cout << endl << endl;
 	int choose = PrintMenu();
@@ -108,7 +109,7 @@ void SaveToFile(string fileName)		// save file
 
 			string name(ptr->name);
 
-			//Replace(name, ' ', '_');
+			Replace(name,' ', '_');
 
 			outFile << ptr->id << " " << ptr->name << " " << ptr->score << endl;
 		}
@@ -128,25 +129,23 @@ void SaveToFile(string fileName)		// save file
 
 void LoadToFile(string fileName)
 {
+	
+	studient = new Studient[MAX];
 	ifstream inFile;
 	inFile.open(fileName);
 
 	if (inFile.is_open())
 	{
-		int number; // số lượng phần tử struct
+		inFile >> length;
+		Studient* ptr = &studient[0];
 
-		inFile >> number;
-
-		for (int i = 0; i < number; i++)
+		for (int i = 0; i < length; i++)
 		{
-			Studient* ptr = &studient[i];
+			inFile >> (ptr+i)->id;
+			inFile >> (ptr+i)->name;
+			inFile >> (ptr+i)->score;
 
-			inFile >> ptr->id;
-			inFile >> ptr->name;
-			inFile >> ptr->score;
-
-			//Replace(std.name, '_', ' ');
-			//studient.push_back(std);
+			Replace(ptr->name, '_', ' ');
 		}
 
 		inFile.close();
