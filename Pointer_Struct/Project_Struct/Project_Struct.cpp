@@ -4,12 +4,13 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
+#include <vector>
 #define MAX 100
 
 using namespace std;
 
 void Select(int);
-static int length = 0;
+static int length = 0; // đếm số phần tử của struct
 
 struct Studient
 {
@@ -19,8 +20,9 @@ struct Studient
 };
 
 Studient* studient = new Studient[MAX];
+vector<Studient> g_studientList;
 
-int PrintMenu()
+int PrintMenu() // In menu 
 {
 	int choose;
 	cout << "--------------MENU-----------" << endl;
@@ -34,76 +36,82 @@ int PrintMenu()
 	cin >> choose;
 	return choose;
 }
-int checkID(int id)
+int CheckID(int id) // check trùng OD
 {
-	for (int i = 0; i < length; i++)
+	Studient* ptr = &studient[length]; // con trỏ ptr trỏ tới studient[length];
+
+	for (int i = 0; i < length-1; i++)
 	{
-		if (id == studient[i].id) return false;
+		if (id == ((ptr + i)->id))
+		{
+			return false;
+		}
 	}
-	
 	return true;
 }
-void InputStudient()
+void InputStudient() // Nhập sinh viên
 {
-	int temp;
+	Studient* ptr = &studient[length]; // con trỏ ptr trỏ tới studient[length];
 	system("cls");
 	cout << "INPUT INFORMATION STUDIENT " << endl;
 	cout << "INPUT ID:";
-	cin >> temp;
+	cin >> ptr -> id;
 	cin.ignore();
-	while (!checkID(temp))
+	while (!CheckID(ptr -> id)) // false thì nhập lại
 	{
 		cout << "ERRO INPUT, INPUT ID AGAIN:";
-		cin >> temp;
+		cin >> ptr -> id;
 		cin.ignore();
 	};
-	studient[length].id = temp;
 	cout << "INPUT NAME:";
-	getline(cin, studient[length].name);
+	getline(cin, ptr->name);
 	cout << "INPUT SCORE:";
-	cin >> studient[length].score;
-	while (studient[length].score < 0 || studient[length].score>10)
+	cin >> ptr->score;
+	while (ptr->score < 0 || ptr->score>10) // điểm lỗi thì nhập lại
 	{
 		cout << "ERRO INPUT" << endl;
 		cout << "INPUT SCORE AGAIN:";
-		cin >> studient[length].score;
+		cin >> ptr->score;
 	}
 	system("cls");
 	length++;
 	cout << "ADD STUDIENT SUCCESS" << endl;
-	int choose = PrintMenu();
-	Select(choose);
+	int choose = PrintMenu();			// Quay lại menu
+	Select(choose);						// Kiểm tra lựa chọn
 }
 
 void Display()
 {
+	Studient* ptr = &studient[0];		// trỏ tới phần tử đầu tiên của struct
 	system("cls");
 	cout << "ID\tNAME\tSCORE" << endl;
 	for (int i = 0; i < length; i++)
 	{
-		cout << studient[i].id << "\t" << studient[i].name << "\t" << studient[i].score << endl;
+		cout << (ptr+i)->id << "\t" << (ptr + i)->name << "\t" << (ptr + i)->score << endl;
 	}
 	cout << endl << endl;
 	int choose = PrintMenu();
 	Select(choose);
 }
 
-void SaveToFile(string fileName)
+void SaveToFile(string fileName)		// save file
 {
 	ofstream outFile;
-	outFile.open(fileName);
+	outFile.open(fileName);				// mở file_name
 	if (outFile.is_open())
 	{
 		//save number
+		outFile << length << endl;
+
 		for (int i = 0; i < length; i++)
 		{
-			Studient std = studient[i];
+			Studient* ptr = &studient[i];
 
-			string name(std.name);
+			string name(ptr->name);
 
 			//Replace(name, ' ', '_');
 
-			outFile << std.id << " " << name << " " << std.score << endl;
+			outFile << ptr->id << " " << ptr->name << " " << ptr->score << endl;
 		}
 
 		cout << "Save to " << fileName << endl;
@@ -116,9 +124,36 @@ void SaveToFile(string fileName)
 	}
 }
 
-void LoadToFile()
+void LoadToFile(string fileName)
 {
-	cout << "This is LoadToFile Function " << endl;
+	ifstream inFile;
+	inFile.open(fileName);
+
+	if (inFile.is_open())
+	{
+		int num;
+
+		inFile >> num;
+
+		for (int i = 0; i < length ; i++)
+		{
+			Studient* ptr = &studient[i];
+
+			inFile >> ptr->id;
+			inFile >> ptr->name;
+			inFile >> ptr->score;
+
+			//Replace(std.name, '_', ' ');
+			//studient.push_back(std);
+		}
+
+		inFile.close();
+	}
+	else
+	{
+		cout << "LOAD ERROR" << endl;
+	}
+
 }
 
 void Select(int select)
@@ -135,7 +170,7 @@ void Select(int select)
 		SaveToFile("saveFile.dat");
 		break;
 	case 4:
-		LoadToFile();
+		LoadToFile("saveFile.dat");
 		break;
 	case 0:
 		break;
