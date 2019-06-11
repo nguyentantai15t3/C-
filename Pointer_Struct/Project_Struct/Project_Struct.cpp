@@ -20,7 +20,6 @@ struct Studient
 };
 
 Studient* studient = new Studient[MAX];
-vector<Studient> g_studientList;
 
 int PrintMenu() // In menu 
 {
@@ -38,7 +37,7 @@ int PrintMenu() // In menu
 }
 int CheckID(int id) // check trùng OD
 {
-	Studient* ptr = &studient[length]; // con trỏ ptr trỏ tới studient[length];
+	Studient* ptr = &studient[0]; 
 
 	for (int i = 0; i < length-1; i++)
 	{
@@ -113,15 +112,18 @@ void SaveToFile(string fileName)		// save file
 
 			outFile << ptr->id << " " << ptr->name << " " << ptr->score << endl;
 		}
-
-		cout << "Save to " << fileName << endl;
+		system("cls");
+		cout << "Save to " << fileName << " success." << endl << endl;
 
 		outFile.close();
 	}
 	else
 	{
+		system("cls");
 		cout << "ERROR" << endl;
 	}
+	int choose = PrintMenu();			// Quay lại menu
+	Select(choose);						// Kiểm tra lựa chọn
 }
 
 void LoadToFile(string fileName)
@@ -131,11 +133,11 @@ void LoadToFile(string fileName)
 
 	if (inFile.is_open())
 	{
-		int num;
+		int number; // số lượng phần tử struct
 
-		inFile >> num;
+		inFile >> number;
 
-		for (int i = 0; i < length ; i++)
+		for (int i = 0; i < number; i++)
 		{
 			Studient* ptr = &studient[i];
 
@@ -148,11 +150,16 @@ void LoadToFile(string fileName)
 		}
 
 		inFile.close();
+		system("cls");
+		cout << "Load to " << fileName << " success." << endl << endl ;
 	}
 	else
 	{
+		system("cls");
 		cout << "LOAD ERROR" << endl;
 	}
+	int choose = PrintMenu();			// Quay lại menu
+	Select(choose);						// Kiểm tra lựa chọn
 
 }
 
