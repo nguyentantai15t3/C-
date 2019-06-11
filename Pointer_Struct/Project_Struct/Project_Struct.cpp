@@ -114,9 +114,7 @@ void SaveToFile(string fileName)		// save file (tên file lưu)
 		{
 			Studient* ptr = &studient[i];
 
-			string name(ptr->name);
-
-			Replace(name,' ', '_');
+			Replace(ptr->name,' ', '_');
 
 			outFile << ptr->id << " " << ptr->name << " " << ptr->score << endl;
 		}
@@ -152,7 +150,7 @@ void LoadToFile(string fileName)
 			inFile >> (ptr+i)->name;
 			inFile >> (ptr+i)->score;
 
-			Replace(ptr->name, '_', ' ');
+			Replace((ptr+i)->name,'_', ' ');
 		}
 
 		inFile.close();
