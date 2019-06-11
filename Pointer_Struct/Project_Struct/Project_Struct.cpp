@@ -13,14 +13,14 @@ void Select(int);
 void Replace(string &, char, char);
 static int length = 0; // đếm số phần tử của struct
 
-struct Studient
+struct Student
 {
 	int id;
 	float score;
 	string name;
 };
 
-Studient* studient = new Studient[MAX];
+Student* student = new Student[MAX];
 
 int PrintMenu() // In menu 
 {
@@ -38,7 +38,7 @@ int PrintMenu() // In menu
 }
 int CheckID(int id) // check trùng ID và chữ
 {
-	Studient* ptr = studient; 
+	Student* ptr = student; 
 	for (int i = 0; i < length; i++)
 	{
 		if (id == (ptr++)->id)
@@ -48,11 +48,11 @@ int CheckID(int id) // check trùng ID và chữ
 	}
 	return true;
 }
-void InputStudient() // Nhập sinh viên
+void InputStudent() // Nhập sinh viên
 {
-	Studient* ptr = &studient[length]; // con trỏ ptr trỏ tới studient[length];
+	Student* ptr = &student[length]; // con trỏ ptr trỏ tới student[length];
 	system("cls");
-	cout << "INPUT INFORMATION STUDIENT " << endl;
+	cout << "INPUT INFORMATION STUDENT " << endl;
 	cout << "INPUT ID:";
 	cin >> ptr -> id;
 	cin.ignore();
@@ -74,7 +74,7 @@ void InputStudient() // Nhập sinh viên
 	}
 	system("cls");
 	length++;							// tăng số phần tử lên 1 đơn vị
-	cout << "ADD STUDIENT SUCCESS" << endl;
+	cout << "ADD STUDENT SUCCESS" << endl;
 	int choose = PrintMenu();			// Quay lại menu
 	Select(choose);						// Kiểm tra lựa chọn
 }
@@ -88,7 +88,7 @@ void Display()							// hàm hiển trị danh sách sinh viên
 	}
 	else
 	{
-		Studient* ptr = studient;		// trỏ tới phần tử đầu tiên của struct
+		Student* ptr = student;		// trỏ tới phần tử đầu tiên của struct
 		system("cls");
 		cout << "ID\tNAME\t\tSCORE" << endl;
 		for (int i = 0; i < length; i++)
@@ -112,7 +112,7 @@ void SaveToFile(string fileName)		// save file (tên file lưu)
 
 		for (int i = 0; i < length; i++)
 		{
-			Studient* ptr = &studient[i];
+			Student* ptr = &student[i];
 
 			Replace(ptr->name,' ', '_');
 
@@ -135,14 +135,14 @@ void SaveToFile(string fileName)		// save file (tên file lưu)
 void LoadToFile(string fileName)
 {
 	
-	studient = new Studient[MAX];
+	student = new Student[MAX];
 	ifstream inFile;
 	inFile.open(fileName);
 
 	if (inFile.is_open())
 	{
 		inFile >> length;
-		Studient* ptr = &studient[0];
+		Student* ptr = &student[0];
 
 		for (int i = 0; i < length; i++)
 		{
@@ -185,7 +185,7 @@ void Select(int select)
 	switch (select)
 	{
 	case 1:
-		InputStudient();
+		InputStudent();
 		break;
 	case 2:
 		Display();
