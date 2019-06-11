@@ -36,13 +36,16 @@ int PrintMenu() // In menu
 	cin >> choose;
 	return choose;
 }
+int CheckNumber(int number)
+{
+
+}
 int CheckID(int id) // check trùng ID
 {
 	Studient* ptr = &studient[0]; 
-
 	for (int i = 0; i < length; i++)
 	{
-		if (id == (ptr+i)->id)
+		if (id == (ptr++)->id)
 		{
 			return false;
 		}
