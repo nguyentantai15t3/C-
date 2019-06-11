@@ -58,7 +58,7 @@ void InputStudient() // Nhập sinh viên
 	cin.ignore();
 	while (!CheckID(ptr -> id)) // false thì nhập lại
 	{
-		cout << "ERRO INPUT, INPUT ID AGAIN:";
+		cout << "ERROR INPUT, INPUT ID AGAIN:";
 		cin >> ptr -> id;
 		cin.ignore();
 	};
@@ -81,14 +81,22 @@ void InputStudient() // Nhập sinh viên
 
 void Display()							// hàm hiển trị danh sách sinh viên
 {
-	Studient* ptr =studient;		// trỏ tới phần tử đầu tiên của struct
-	system("cls");
-	cout << "ID\tNAME\t\tSCORE" << endl;
-	for (int i = 0; i < length; i++)
+	if (length == 0)
 	{
-		cout << (ptr+i)->id << "\t" << (ptr + i)->name << "\t\t" << (ptr + i)->score << endl;
+		system("cls");
+		cout << "NULL" << endl << endl;
 	}
-	cout << endl << endl;
+	else
+	{
+		Studient* ptr = studient;		// trỏ tới phần tử đầu tiên của struct
+		system("cls");
+		cout << "ID\tNAME\t\tSCORE" << endl;
+		for (int i = 0; i < length; i++)
+		{
+			cout << (ptr + i)->id << "\t" << (ptr + i)->name << "\t\t" << (ptr + i)->score << endl;
+		}
+		cout << endl << endl;
+	}
 	int choose = PrintMenu();
 	Select(choose);
 }
