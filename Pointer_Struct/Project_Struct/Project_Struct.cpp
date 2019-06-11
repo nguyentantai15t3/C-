@@ -163,6 +163,18 @@ void LoadToFile(string fileName)
 
 }
 
+void Replace(string &str, char to, char by)
+{
+	for (int i = 0; i < str.length(); i++)
+	{
+		if (str.at(i) == to)
+		{
+			str.at(i) = by;
+		}
+	}
+}
+
+
 void Select(int select)
 {
 	switch (select)
