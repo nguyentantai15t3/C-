@@ -36,13 +36,12 @@ int PrintMenu() // In menu
 	cin >> choose;
 	return choose;
 }
-int CheckID(int id) // check trùng ID
+int CheckID(int id) // check trùng ID và chữ
 {
-	Studient* ptr = &studient[0]; 
-
+	Studient* ptr = studient; 
 	for (int i = 0; i < length; i++)
 	{
-		if (id == (ptr+i)->id)
+		if (id == (ptr++)->id)
 		{
 			return false;
 		}
@@ -82,7 +81,7 @@ void InputStudient() // Nhập sinh viên
 
 void Display()							// hàm hiển trị danh sách sinh viên
 {
-	Studient* ptr = &studient[0];		// trỏ tới phần tử đầu tiên của struct
+	Studient* ptr =studient;		// trỏ tới phần tử đầu tiên của struct
 	system("cls");
 	cout << "ID\tNAME\t\tSCORE" << endl;
 	for (int i = 0; i < length; i++)
