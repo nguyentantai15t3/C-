@@ -156,6 +156,7 @@ void LoadToFile(string fileName)
 		system("cls");
 		cout << "LOAD ERROR" << endl;
 	}
+	Display();
 	int choose = PrintMenu();			// Quay lại menu
 	Select(choose);						// Kiểm tra lựa chọn
 
@@ -190,6 +191,7 @@ void Select(int select)
 		LoadToFile("saveFile.dat");
 		break;
 	case 0:
+		exit(0);
 		break;
 	default:
 		break;
