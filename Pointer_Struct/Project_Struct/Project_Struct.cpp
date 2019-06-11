@@ -3,6 +3,7 @@
 #include <string>
 #include <iostream>
 #include <iomanip>
+#include <fstream>
 #define MAX 100
 
 using namespace std;
@@ -35,7 +36,7 @@ int PrintMenu()
 }
 int checkID(int id)
 {
-	for (int i = 0; i <= length; i++)
+	for (int i = 0; i < length; i++)
 	{
 		if (id == studient[i].id) return false;
 	}
@@ -87,9 +88,32 @@ void Display()
 	Select(choose);
 }
 
-void SaveToFile()
+void SaveToFile(string fileName)
 {
-	cout << "This is SaveToFile Function " << endl;
+	ofstream outFile;
+	outFile.open(fileName);
+	if (outFile.is_open())
+	{
+		//save number
+		for (int i = 0; i < length; i++)
+		{
+			Studient std = studient[i];
+
+			string name(std.name);
+
+			//Replace(name, ' ', '_');
+
+			outFile << std.id << " " << name << " " << std.score << endl;
+		}
+
+		cout << "Save to " << fileName << endl;
+
+		outFile.close();
+	}
+	else
+	{
+		cout << "ERROR" << endl;
+	}
 }
 
 void LoadToFile()
@@ -108,7 +132,7 @@ void Select(int select)
 		Display();
 		break;
 	case 3:
-		SaveToFile();
+		SaveToFile("saveFile.dat");
 		break;
 	case 4:
 		LoadToFile();
