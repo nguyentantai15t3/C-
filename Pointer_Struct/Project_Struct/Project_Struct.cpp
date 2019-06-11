@@ -33,17 +33,30 @@ int PrintMenu()
 	cin >> choose;
 	return choose;
 }
-void checkID()
+int checkID(int id)
 {
-
+	for (int i = 0; i <= length; i++)
+	{
+		if (id == studient[i].id) return false;
+	}
+	
+	return true;
 }
 void InputStudient()
 {
+	int temp;
 	system("cls");
 	cout << "INPUT INFORMATION STUDIENT " << endl;
 	cout << "INPUT ID:";
-	cin >> studient[length].id;
+	cin >> temp;
 	cin.ignore();
+	while (!checkID(temp))
+	{
+		cout << "ERRO INPUT, INPUT ID AGAIN:";
+		cin >> temp;
+		cin.ignore();
+	};
+	studient[length].id = temp;
 	cout << "INPUT NAME:";
 	getline(cin, studient[length].name);
 	cout << "INPUT SCORE:";
