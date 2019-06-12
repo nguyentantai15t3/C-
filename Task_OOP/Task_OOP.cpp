@@ -40,11 +40,11 @@ int MyPoint::GetY()
 
 void MyPoint::Display()
 {
-	cout << "Value of mPosX:" << this->mPosX << " and value of mPosY:" << this->mPosY << endl;
+	cout << "Value of mPosX: " << this->mPosX << " and value of mPosY: " << this->mPosY << endl;
 }
 double MyPoint::Distance(MyPoint* p)
 {
-	return sqrt(pow(this->mPosX - p->mPosX, 2) + pow(this->mPosY - p->mPosY, 2));
+	return sqrt(pow(this->mPosX - p->GetX(), 2) + pow(this->mPosY - p->GetY(), 2));
 }
 
 MyPoint::~MyPoint() {};
