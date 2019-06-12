@@ -38,9 +38,8 @@ void MyPoint::Display()
 {
 	cout << "Value of mPosX:" << mPosX << " and value of mPosY:" << mPosY << endl;
 }
-
-int main()
+float MyPoint::Distance(MyPoint p)
 {
-    return 0;
+
 }
 
