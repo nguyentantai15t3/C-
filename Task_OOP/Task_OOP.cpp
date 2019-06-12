@@ -14,6 +14,14 @@ MyPoint::MyPoint(int mPosX, int mPosY)
 
 MyPoint::~MyPoint() {};
 
+void MyPoint::SetX(int mPosx)
+{
+	this->mPosX = mPosx;
+}
+int MyPoint::GetX()
+{
+	return this->mPosX;
+}
 int main()
 {
     return 0;
