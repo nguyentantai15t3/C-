@@ -14,7 +14,7 @@ public:
 	void SetX(int mPosX);
 	int GetX();
 	void SetY(int mPosY);
-	int SetY();
+	int GetY();
 	void Display();
 	float Distance(MyPoint p)
 };

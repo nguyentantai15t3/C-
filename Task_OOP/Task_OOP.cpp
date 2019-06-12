@@ -22,6 +22,14 @@ int MyPoint::GetX()
 {
 	return this->mPosX;
 }
+void MyPoint::SetY(int mPosy)
+{
+	this->mPosY = mPosy;
+}
+int MyPoint::GetY()
+{
+	return this->mPosY;
+}
 int main()
 {
     return 0;
