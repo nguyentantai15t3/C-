@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include <iostream>
 #include "Task_OOP.h"
 
@@ -40,8 +39,8 @@ void MyPoint::Display()
 {
 	cout << "Value of mPosX:" << this->mPosX << " and value of mPosY:" << this->mPosY << endl;
 }
-float MyPoint::Distance(MyPoint &p)
+double MyPoint::Distance(MyPoint &p)
 {
-	sqrt(pow(this->mPosX - p.mPosX, 2) + pow(this->mPosY - p.mPosY, 2));
+	return sqrt(pow(this->mPosX - p.mPosX, 2) + pow(this->mPosY - p.mPosY, 2));
 }
 

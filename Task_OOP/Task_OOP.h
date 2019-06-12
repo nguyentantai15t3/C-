@@ -16,5 +16,5 @@ public:
 	void SetY(int mPosY);
 	int GetY();
 	void Display();
-	float Distance(MyPoint &p);
+	double Distance(MyPoint &p);
 };
