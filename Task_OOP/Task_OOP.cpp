@@ -1,5 +1,9 @@
+#include "stdafx.h"
 #include <iostream>
 #include "Task_OOP.h"
+#include <cmath>
+
+using namespace std;
 
 MyPoint::MyPoint() 
 {
@@ -13,11 +17,10 @@ MyPoint::MyPoint(int mPosX, int mPosY)
 	this->mPosY;
 }
 
-MyPoint::~MyPoint() {};
 
-void MyPoint::SetX(int mPosx)
+void MyPoint::SetX(int x)
 {
-	this->mPosX = mPosx;
+	this->mPosX = x;
 }
 
 int MyPoint::GetX()
@@ -25,9 +28,9 @@ int MyPoint::GetX()
 	return this->mPosX;
 }
 
-void MyPoint::SetY(int mPosy)
+void MyPoint::SetY(int y)
 {
-	this->mPosY = mPosy;
+	this->mPosY = y;
 }
 
 int MyPoint::GetY()
@@ -39,8 +42,9 @@ void MyPoint::Display()
 {
 	cout << "Value of mPosX:" << this->mPosX << " and value of mPosY:" << this->mPosY << endl;
 }
-double MyPoint::Distance(MyPoint &p)
+double MyPoint::Distance(MyPoint* p)
 {
-	return sqrt(pow(this->mPosX - p.mPosX, 2) + pow(this->mPosY - p.mPosY, 2));
+	return sqrt(pow(this->mPosX - p->mPosX, 2) + pow(this->mPosY - p->mPosY, 2));
 }
 
+MyPoint::~MyPoint() {};

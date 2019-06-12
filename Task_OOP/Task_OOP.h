@@ -1,7 +1,4 @@
 #pragma once
-
-using namespace std;
-
 class MyPoint
 {
 private:
@@ -11,10 +8,10 @@ public:
 	MyPoint();
 	MyPoint(int mPosX,int mPosY);
 	~MyPoint();
-	void SetX(int mPosX);
+	void SetX(int);
 	int GetX();
-	void SetY(int mPosY);
+	void SetY(int);
 	int GetY();
 	void Display();
-	double Distance(MyPoint &p);
+	double Distance(MyPoint* p);
 };
