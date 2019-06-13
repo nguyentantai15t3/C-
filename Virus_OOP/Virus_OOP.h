@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include <list>
 
 class Virus
 {
@@ -9,10 +10,10 @@ public:
 	Virus();
 	Virus(const Virus *virus);
 	~Virus();
-	virtual void LoadADNInformation​();
-	virtual void ReduceResistance​();
+	void LoadADNInformation​();
+	void ReduceResistance​(int medicine_resistance);
 	virtual void DoBorn();
-	virtual void DoClone();
+	virtual list<Virus>  DoClone();
 	virtual void DoDie();
 	virtual void InitResistance();
 

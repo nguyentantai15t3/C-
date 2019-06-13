@@ -14,3 +14,5 @@ Virus::Virus(const Virus* viruss)
 }
 
 Virus::~Virus() {};
+
+
