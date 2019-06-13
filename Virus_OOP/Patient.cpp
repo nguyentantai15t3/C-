@@ -2,6 +2,7 @@
 #include "Patient.h"
 #include "Flu_Virus.h"
 #include "Dengue.h"
+#include "Varus.h"
 
 using namespace std;
 
@@ -53,7 +54,9 @@ void Patient::TakeMedicine()	// uống thuốc
 		}
 		else
 		{
-			// clone
+			list<Varus*> clonelist = (*member_virusList)->DoClone();
+			this->m_virusList.insert(this->m_virusList.end(),clonelist.begin(),clonelist.end();
+			member_virusList++;
 		}
 	}
 }
