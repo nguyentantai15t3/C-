@@ -42,6 +42,16 @@ void Dengue_Virus::DoDie()
 	delete this;
 }
 
+list<Varus*> Dengue_Virus::DoClone()
+{
+	Varus *virus1 = new Dengue_Virus(this);
+	Varus *virus2 = new Dengue_Virus(this);
+	list<Varus*> clonevirus;
+	clonevirus.push_back(virus1);
+	clonevirus.push_back(virus2);
+	return clonevirus;
+}
+
 Dengue_Virus::Dengue_Virus(Dengue_Virus * dengue_virus):Varus(dengue_virus)
 {
 	this->m_protein = dengue_virus->m_protein;
