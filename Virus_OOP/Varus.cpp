@@ -34,7 +34,7 @@ void Varus::LoadADNInformation​()
 	{
 		cout << "LOAD ERROR" << endl;
 	}
-	cout << this->m_dna << endl;
+	// cout << this->m_dna << endl;
 }
 
 int Varus::ReduceResistance​(int medicine_resistance)

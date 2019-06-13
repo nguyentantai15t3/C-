@@ -3,6 +3,7 @@
 #include "Flu_Virus.h"
 #include "Dengue.h"
 #include "Varus.h"
+#include <iostream>
 
 using namespace std;
 
@@ -30,11 +31,13 @@ inline void Patient::DoStart()
 		int type_virus = rand() % 2 + 1;		// loại 1 hoặc 2
 		if (type_virus == 1)					// loại Flu
 		{	
+			cout << "Flu_Virus ";
 			Flu_Virus* flu_virus = new Flu_Virus();		// tạo virus Flu
 			this->m_virusList.push_back(flu_virus);		// thêm vào list virus
 		}
 		else
 		{
+			cout << "Dengue_Virus ";
 			Dengue_Virus* dengua_virus = new Dengue_Virus();		// tạo virus Dengue
 			this->m_virusList.push_back(dengua_virus);				// thêm vào list virus
 		}
@@ -55,7 +58,7 @@ void Patient::TakeMedicine()	// uống thuốc
 		else
 		{
 			list<Varus*> clonelist = (*member_virusList)->DoClone();
-			this->m_virusList.insert(this->m_virusList.end(),clonelist.begin(),clonelist.end();
+			this->m_virusList.insert(this->m_virusList.end(),clonelist.begin(),clonelist.end());
 			member_virusList++;
 		}
 	}

@@ -20,19 +20,19 @@ void Dengue_Virus::DoBorn()
 	if (number_name == 1)
 	{
 		this->m_protein = "NS3";
-		cout << this->m_protein << endl;
+		cout << this->m_protein << " ";
 		this->SetResistance(InitResistance(1,10));			// 1-10 máu
 	}
 	else if (number_name==2)
 	{
 		this->m_protein = "NS5";
-		cout << this->m_protein << endl;
+		cout << this->m_protein << " ";
 		this->SetResistance(InitResistance(11, 20));			// 11-20 máu
 	}
 	else
 	{
 		this->m_protein = "E";
-		cout << this->m_protein << endl;
+		cout << this->m_protein << " ";
 		this->SetResistance(InitResistance(21, 30));			// 21-30 máu
 	}
 }
