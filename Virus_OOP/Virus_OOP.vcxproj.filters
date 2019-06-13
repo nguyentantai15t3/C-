@@ -27,6 +27,12 @@
     <ClInclude Include="Virus_OOP.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Flu_Virus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Dengue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -36,6 +42,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Flu_Virus.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Dengue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

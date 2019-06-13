@@ -2,6 +2,9 @@
 
 class Virus
 {
+private:
+	char* m_dna;
+	int m_resistance;
 public:
 	Virus();
 	Virus(const Virus *virus);
@@ -13,7 +16,4 @@ public:
 	virtual void DoDie();
 	virtual void InitResistance();
 
-private:
-	char* m_dna;
-	int m_resistance;
 };
