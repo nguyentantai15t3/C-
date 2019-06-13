@@ -29,6 +29,7 @@ void Virus::LoadADNInformation​()
 	{
 		cout << "LOAD ERROR" << endl;
 	}
+	cout << this->m_dna << endl;
 }
 
 int Virus::ReduceResistance​(int medicine_resistance)
@@ -39,6 +40,7 @@ int Virus::ReduceResistance​(int medicine_resistance)
 void Virus::Set_m_resistance(int m_resistance)
 {
 	this->m_resistance=m_resistance;
+	cout << this->m_resistance << endl;
 }
 
 

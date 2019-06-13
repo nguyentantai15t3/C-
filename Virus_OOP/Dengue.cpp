@@ -1,5 +1,8 @@
 ﻿#include "stdafx.h"
 #include "Dengue.h"
+#include <iostream>
+
+using namespace std;
 
 Dengue_Virus::Dengue_Virus()
 {
@@ -16,17 +19,20 @@ void Dengue_Virus::DoBorn()
 	if (number_name == 1)
 	{
 		this->m_protein = "NS3";
-		this->Set_m_resistance = InitResistance(1,10);
+		cout << this->m_protein << endl;
+		this->Set_m_resistance = InitResistance(1,10);			// 1-10 máu
 	}
 	else if (number_name==2)
 	{
 		this->m_protein = "NS5";
-		this->Set_m_resistance = InitResistance(11, 20);
+		cout << this->m_protein << endl;
+		this->Set_m_resistance = InitResistance(11, 20);		// 11-20 máu
 	}
 	else
 	{
 		this->m_protein = "E";
-		this->Set_m_resistance = InitResistance(21, 30);
+		cout << this->m_protein << endl;
+		this->Set_m_resistance = InitResistance(21, 30);		// 21-30 máu
 	}
 }
 

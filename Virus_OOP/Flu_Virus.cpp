@@ -15,7 +15,6 @@ Flu_Virus::~Flu_Virus()
 Flu_Virus::Flu_Virus(Flu_Virus * flu_virus):Virus(flu_virus)
 {
 	this->color = flu_virus->color;
-	cout << color ;
 }
 
 void Flu_Virus::DoBorn()
@@ -24,11 +23,13 @@ void Flu_Virus::DoBorn()
 	this->color = rand() % 2 + 1;
 	if (this->color == 1)
 	{
-		this->Set_m_resistance=InitResistance(10, 20);
+		cout << "Red color" << endl;
+		this->Set_m_resistance=InitResistance(10, 20); // 10-20 máu
 	}
 	else
 	{
-		this->Set_m_resistance = InitResistance(10,15);
+		cout << "Blue color" << endl;
+		this->Set_m_resistance = InitResistance(10,15); // 10-15 máu
 	}
 }
 
