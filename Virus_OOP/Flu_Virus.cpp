@@ -25,12 +25,12 @@ void Flu_Virus::DoBorn()
 	if (this->color == 1)
 	{
 		cout << "Red color" << endl;
-		this->Set_m_resistance(InitResistance(10, 20)); // 10-20 máu
+		this->SetResistance(InitResistance(10, 20)); // 10-20 máu
 	}
 	else
 	{
 		cout << "Blue color" << endl;
-		this->Set_m_resistance(InitResistance(10,15)); // 10-15 máu
+		this->SetResistance(InitResistance(10,15)); // 10-15 máu
 	}
 }
 

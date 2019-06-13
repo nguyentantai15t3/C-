@@ -3,5 +3,6 @@
 
 void main()
 {
+	
 	system("pause");
 }

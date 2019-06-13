@@ -37,7 +37,7 @@ int Virus::ReduceResistance​(int medicine_resistance)
 	return this->m_resistance = this->m_resistance - medicine_resistance; // trả về máu của virus
 }
 
-void Virus::Set_m_resistance(int m_resistance)
+void Virus::SetResistance(int m_resistance)
 {
 	this->m_resistance=m_resistance;
 	cout << this->m_resistance << endl;

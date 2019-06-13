@@ -6,6 +6,7 @@ using namespace std;
 
 Dengue_Virus::Dengue_Virus()
 {
+	DoBorn();
 }
 
 Dengue_Virus::~Dengue_Virus()
@@ -26,13 +27,13 @@ void Dengue_Virus::DoBorn()
 	{
 		this->m_protein = "NS5";
 		cout << this->m_protein << endl;
-		this->Set_m_resistance(InitResistance(11, 20));		// 11-20 máu
+		this->SetResistance(InitResistance(11, 20));			// 11-20 máu
 	}
 	else
 	{
 		this->m_protein = "E";
 		cout << this->m_protein << endl;
-		this->Set_m_resistance(InitResistance(21, 30));	// 21-30 máu
+		this->SetResistance(InitResistance(21, 30));			// 21-30 máu
 	}
 }
 
