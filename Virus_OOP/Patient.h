@@ -18,4 +18,4 @@ private:
 	int m_resistance;
 	list<Virus*> m_virusList;
 	int m_state;
-}
+};

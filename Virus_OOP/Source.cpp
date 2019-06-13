@@ -6,6 +6,6 @@ using namespace std;
 
 void main()
 {
-	Patient patient;
+	Patient *patient = new Patient();
 	system("pause");
 }

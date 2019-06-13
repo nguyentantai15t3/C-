@@ -6,7 +6,7 @@ using namespace std;
 
 Dengue_Virus::Dengue_Virus()
 {
-	DoBorn();
+	this->DoBorn();
 }
 
 Dengue_Virus::~Dengue_Virus()

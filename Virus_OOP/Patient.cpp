@@ -7,8 +7,8 @@ using namespace std;
 
 Patient::Patient()
 {
-	DoStart();
-	InitResistance(1000, 9000);
+	this->DoStart();
+	this->InitResistance(1000, 9000);
 }
 
 Patient::~Patient()

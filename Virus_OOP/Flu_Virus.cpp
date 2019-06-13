@@ -6,7 +6,7 @@ using namespace std;
 
 Flu_Virus::Flu_Virus()
 {
-	DoBorn();
+	this->DoBorn();
 }
 
 Flu_Virus::~Flu_Virus()
