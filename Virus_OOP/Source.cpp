@@ -1,11 +1,13 @@
 #include "stdafx.h"
 #include <iostream>
 #include "Patient.h"
+#include <time.h>
 
 using namespace std;
 
 void main()
 {
-	Patient *patient = new Patient();
+	srand(time(NULL));
+	Patient patient;
 	system("pause");
 }

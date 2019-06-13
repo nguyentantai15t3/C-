@@ -25,7 +25,9 @@ void Varus::LoadADNInformation​()
 	inFile.open("ATGX.bin");
 	if (inFile.is_open())
 	{
-		inFile >> this->m_dna;
+		char a[100];
+		inFile >> a;
+		m_dna = (char *)a;
 	}
 	else
 	{

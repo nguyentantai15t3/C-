@@ -27,7 +27,7 @@ inline void Patient::DoStart()
 	for (int i = 0; i < value_random_virus; i++)
 	{
 		int type_virus = rand() % 2 + 1; // 1 or 2
-		if (type_virus = 1)
+		if (type_virus == 1)
 		{
 			Flu_Virus* flu_virus = new Flu_Virus();
 			this->m_virusList.push_back(flu_virus);
