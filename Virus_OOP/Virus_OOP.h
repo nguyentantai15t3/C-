@@ -17,11 +17,3 @@ private:
 	char* m_dna;
 	int m_resistance;
 };
-
-Virus::Virus()
-{
-}
-
-Virus::~Virus()
-{
-}
