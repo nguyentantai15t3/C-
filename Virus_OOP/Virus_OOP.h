@@ -16,5 +16,4 @@ public:
 	//virtual list<Virus>  DoClone();
 	//virtual void DoDie();
 	//virtual void InitResistance();
-
 };
