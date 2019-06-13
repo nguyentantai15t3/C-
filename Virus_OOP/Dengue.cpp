@@ -21,7 +21,7 @@ void Dengue_Virus::DoBorn()
 	{
 		this->m_protein = "NS3";
 		cout << this->m_protein << endl;
-		this->Set_m_resistance(InitResistance(1,10));			// 1-10 máu
+		this->SetResistance(InitResistance(1,10));			// 1-10 máu
 	}
 	else if (number_name==2)
 	{

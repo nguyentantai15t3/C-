@@ -1,10 +1,14 @@
+#include "stdafx.h"
 #include "Patient.h"
 #include "Flu_Virus.h"
+#include "Dengue.h"
+
+using namespace std;
 
 Patient::Patient()
 {
 	DoStart();
-	DoStart();
+	InitResistance(1000, 9000);
 }
 
 Patient::~Patient()
@@ -25,8 +29,13 @@ inline void Patient::DoStart()
 		int type_virus = rand() % 2 + 1; // 1 or 2
 		if (type_virus = 1)
 		{
-			Flu_Virus* flu_Virus = new Flu_Virus();
-			
+			Flu_Virus* flu_virus = new Flu_Virus();
+			this->m_virusList.push_back(flu_virus);
+		}
+		else
+		{
+			Dengue_Virus* dengua_virus = new Dengue_Virus();
+			this->m_virusList.push_back(dengua_virus);
 		}
 	}
 }
