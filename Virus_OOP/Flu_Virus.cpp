@@ -13,7 +13,7 @@ Flu_Virus::~Flu_Virus()
 {
 }
 
-Flu_Virus::Flu_Virus(Flu_Virus * flu_virus):Varus(flu_virus)
+Flu_Virus::Flu_Virus(const Flu_Virus * flu_virus):Varus(flu_virus)
 {
 	this->color = flu_virus->color;
 }
@@ -37,6 +37,14 @@ void Flu_Virus::DoBorn()
 void Flu_Virus::DoDie()
 {
 	delete this;
+}
+
+list<Varus *> Flu_Virus::DoClone()
+{
+	Varus *virus = new Flu_Virus(this);
+	list<Varus*> clonevirus;
+	clonevirus.push_back(virus);
+	return clonevirus;
 }
 
 int Flu_Virus::InitResistance(int number_1,int number_2)

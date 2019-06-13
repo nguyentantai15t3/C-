@@ -2,6 +2,7 @@
 #include "Varus.h"
 #include <fstream>
 #include <iostream>
+#include <list>
 
 using namespace std;
 

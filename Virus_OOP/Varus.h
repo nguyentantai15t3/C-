@@ -1,4 +1,7 @@
 ﻿#pragma once
+#include <list>
+
+using namespace std;
 
 class Varus
 {
@@ -13,7 +16,7 @@ public:
 	int ReduceResistance​(int medicine_resistance);
 	void SetResistance(int m_resistance);
 	virtual void DoBorn() {};
-	//virtual list<Virus>  DoClone();
+	virtual list<Varus *>  DoClone()=0;
 	virtual void DoDie() {};
-	virtual int InitResistance(int number_1, int number_2) { return 0; };
+	virtual int InitResistance(int number_1, int number_2) = 0;
 };
