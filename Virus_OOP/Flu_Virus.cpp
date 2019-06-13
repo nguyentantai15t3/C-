@@ -20,7 +20,7 @@ Flu_Virus::Flu_Virus(Flu_Virus * flu_virus):Virus(flu_virus)
 
 void Flu_Virus::DoBorn()
 {
-	LoadADNInformation​();
+	this->LoadADNInformation​();
 	this->color = rand() % 2 + 1;
 	if (this->color == 1)
 	{

@@ -11,7 +11,7 @@ Dengue_Virus::~Dengue_Virus()
 
 void Dengue_Virus::DoBorn()
 {
-	LoadADNInformation​();
+	this->LoadADNInformation​();
 	int number_name = rand() % 3 + 1;
 	if (number_name == 1)
 	{
