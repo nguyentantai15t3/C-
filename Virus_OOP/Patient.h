@@ -11,7 +11,7 @@ public:
 	~Patient();
 	int InitResistance(int number_1, int number_2);
 	void DoStart();
-	//void TakeMedicine();
+	void TakeMedicine();
 
 
 private:
