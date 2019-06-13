@@ -53,13 +53,13 @@ void Patient::TakeMedicine()	// uống thuốc
 		if ((*member_virusList)->ReduceResistance​(medicine_resistance) <= 0) // máu virus <=0
 		{
 			(*member_virusList)->DoDie();
-			this->m_virusList.erase(member_virusList++);
+			this->m_virusList.erase(member_virusList++);		// xóa khỏi list và tăng con trỏ lên
 		}
 		else
 		{
-			list<Varus*> clonelist = (*member_virusList)->DoClone();
-			this->m_virusList.insert(this->m_virusList.end(),clonelist.begin(),clonelist.end());
-			member_virusList++;
+			list<Varus*> clonelist = (*member_virusList)->DoClone(); // lấy mảng clone
+			this->m_virusList.insert(this->m_virusList.end(),clonelist.begin(),clonelist.end()); // add vào list hiện tại
+			member_virusList++;	// tăng con trỏ 
 		}
 	}
 }
