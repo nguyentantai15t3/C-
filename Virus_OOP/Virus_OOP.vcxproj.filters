@@ -24,9 +24,6 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Virus_OOP.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Flu_Virus.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -36,12 +33,12 @@
     <ClInclude Include="Patient.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Varus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Virus_OOP.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source.cpp">
@@ -54,6 +51,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Patient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Varus.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

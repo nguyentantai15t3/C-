@@ -1,14 +1,14 @@
 ﻿#pragma once
 
-class Virus
+class Varus
 {
 private:
 	char* m_dna;
 	int m_resistance;
 public:
-	Virus();
-	Virus(const Virus *virus);
-	~Virus();
+	Varus();
+	Varus(const Varus *varus);
+	~Varus();
 	void LoadADNInformation​();
 	int ReduceResistance​(int medicine_resistance);
 	void SetResistance(int m_resistance);

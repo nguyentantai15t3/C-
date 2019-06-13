@@ -13,7 +13,7 @@ Flu_Virus::~Flu_Virus()
 {
 }
 
-Flu_Virus::Flu_Virus(Flu_Virus * flu_virus):Virus(flu_virus)
+Flu_Virus::Flu_Virus(Flu_Virus * flu_virus):Varus(flu_virus)
 {
 	this->color = flu_virus->color;
 }

@@ -1,5 +1,5 @@
 #pragma once
-#include "Virus_OOP.h"
+#include "Varus.h"
 #include <list>
 
 using namespace std;
@@ -16,6 +16,6 @@ public:
 
 private:
 	int m_resistance;
-	list<Virus*> m_virusList;
+	list<Varus*> m_virusList;
 	int m_state;
 };

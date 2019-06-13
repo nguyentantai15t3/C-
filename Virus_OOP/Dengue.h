@@ -1,17 +1,17 @@
 #pragma once
 #include<string>
-#include "Virus_OOP.h"
+#include "Varus.h"
 
 using namespace std;
 
-class Dengue_Virus:public Virus
+class Dengue_Virus:public Varus
 {
 public:
 	Dengue_Virus();
 	~Dengue_Virus();
-	void DoBorn() override;
 	Dengue_Virus(Dengue_Virus* dengue_virus);
 	int InitResistance(int number_1, int numner_2) override;
+	void DoBorn() override;
 private:
 	string m_protein;
 };

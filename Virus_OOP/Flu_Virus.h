@@ -1,8 +1,8 @@
 #pragma once
 #include<string>
-#include "Virus_OOP.h"
+#include "Varus.h"
 
-class Flu_Virus:public Virus
+class Flu_Virus:public Varus
 {
 public:
 	Flu_Virus();

@@ -37,7 +37,7 @@ void Dengue_Virus::DoBorn()
 	}
 }
 
-Dengue_Virus::Dengue_Virus(Dengue_Virus * dengue_virus):Virus(dengue_virus)
+Dengue_Virus::Dengue_Virus(Dengue_Virus * dengue_virus):Varus(dengue_virus)
 {
 	this->m_protein = dengue_virus->m_protein;
 }

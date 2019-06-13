@@ -1,23 +1,25 @@
 ﻿#include "stdafx.h"
-#include "Virus_OOP.h"
+#include "Varus.h"
 #include <fstream>
 #include <iostream>
 
 using namespace std;
 
-Virus::Virus()
+Varus::Varus()
 {
+	this->m_dna = "";
+	this->m_resistance = 0;
 }
 
-Virus::Virus(const Virus* viruss)
+Varus::Varus(const Varus* varus)
 {
-	this->m_dna = viruss->m_dna;
-	this->m_resistance = viruss->m_resistance;
+	this->m_dna = varus->m_dna;
+	this->m_resistance = varus->m_resistance;
 }
 
-Virus::~Virus() {}
+Varus::~Varus() {}
 
-void Virus::LoadADNInformation​()
+void Varus::LoadADNInformation​()
 {
 	ifstream inFile;
 	inFile.open("ATGX.bin");
@@ -32,12 +34,12 @@ void Virus::LoadADNInformation​()
 	cout << this->m_dna << endl;
 }
 
-int Virus::ReduceResistance​(int medicine_resistance)
+int Varus::ReduceResistance​(int medicine_resistance)
 {
 	return this->m_resistance = this->m_resistance - medicine_resistance; // trả về máu của virus
 }
 
-void Virus::SetResistance(int m_resistance)
+void Varus::SetResistance(int m_resistance)
 {
 	this->m_resistance=m_resistance;
 	cout << this->m_resistance << endl;
