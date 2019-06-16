@@ -9,5 +9,10 @@ void main()
 {
 	srand(time(NULL));
 	Patient patient;
+	char t = 0;
+	while (
+	{
+
+	}
 	system("pause");
 }

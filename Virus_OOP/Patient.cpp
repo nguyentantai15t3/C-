@@ -63,3 +63,8 @@ void Patient::TakeMedicine()	// uống thuốc
 		}
 	}
 }
+
+int Patient::GetState()
+{
+	return this->m_state;
+}
