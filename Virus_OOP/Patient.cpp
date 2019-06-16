@@ -48,10 +48,11 @@ inline void Patient::DoStart()
 
 void Patient::TakeMedicine()	// uống thuốc
 {
-	int medicine_resistance = rand() % 10 + 1;			// dame thuốc random từ 1-10
-	cout << "Medicien =" << medicine_resistance << endl;
+	int medicine_resistance = rand() % 10 + 5;			// dame thuốc random từ 1-10
+	cout << "Medicien = " << medicine_resistance << " (Random 6-15)" << endl;
 	auto member_virusList = this->m_virusList.begin();	// khai báo con trỏ trỏ đến vị trí đầu list
-	for (int i = 0; i < this->m_virusList.size(); i++)
+	int size = this->m_virusList.size();
+	for (int i = 0; i < size; i++)
 	{
 		if ((*member_virusList)->ReduceResistance​(medicine_resistance) <= 0) // máu virus <=0
 		{
@@ -85,7 +86,7 @@ int Patient::Getm_virusList()
 int Patient::ResistanceOfAllVirus()
 {
 	int healthofvirus = 0;
-	auto member_virusList = this->m_virusList.begin();
+	auto member_virusList = this->m_virusList.begin();	// khai báo con trỏ trỏ đến vị trí đầu list
 	for (int i = 0; i < this->m_virusList.size(); i++)
 	{
 		healthofvirus += (*member_virusList)->GetResistance();

@@ -10,10 +10,14 @@ void main()
 	srand(time(NULL));
 	Patient patient;
 	char t = 0;
-	while (patient.GetState()==1 && patient.Getm_virusList()>0 || patient.ResistanceOfAllVirus()> patient.Getm_resistance())
+	while ((patient.GetState()==1 && patient.Getm_virusList()>0))
 	{
+		if (patient.ResistanceOfAllVirus() > patient.Getm_resistance())
+		{
+			patient.SetState(0);
+		}
 		cout << patient.Getm_virusList() << " virus exist in patients" << endl;
-		cout << "Health of all viruss is " << patient.ResistanceOfAllVirus() << endl;
+		cout << "Health of all viruss is " << patient.ResistanceOfAllVirus() << endl << endl;
 		cout << "Take Medicine (0 = NO, 1 = YES) : ";
 		cin >> t;
 		cin.ignore();
