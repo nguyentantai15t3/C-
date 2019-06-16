@@ -13,7 +13,10 @@ public:
 	void DoStart();
 	void TakeMedicine();
 	int GetState();
-
+	void SetState(int state);
+	int Getm_virusList();
+	int ResistanceOfAllVirus();
+	int Getm_resistance();
 
 private:
 	int m_resistance;

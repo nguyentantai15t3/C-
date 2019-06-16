@@ -15,6 +15,7 @@ public:
 	void LoadADNInformation​();
 	int ReduceResistance​(int medicine_resistance);
 	void SetResistance(int m_resistance);
+	int GetResistance();
 	virtual void DoBorn() {};
 	virtual list<Varus *>  DoClone()=0;
 	virtual void DoDie() {};

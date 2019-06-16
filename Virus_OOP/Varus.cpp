@@ -34,7 +34,6 @@ void Varus::LoadADNInformation​()
 	{
 		cout << "LOAD ERROR" << endl;
 	}
-	// cout << this->m_dna << endl;
 }
 
 int Varus::ReduceResistance​(int medicine_resistance)
@@ -42,10 +41,15 @@ int Varus::ReduceResistance​(int medicine_resistance)
 	return this->m_resistance = this->m_resistance - medicine_resistance; // trả về máu của virus
 }
 
-void Varus::SetResistance(int m_resistance)
+void Varus::SetResistance(int m_resistance) // set lại máu của virus
 {
 	this->m_resistance=m_resistance;
 	cout << this->m_resistance << endl;
+}
+
+int Varus::GetResistance()
+{
+	return this->m_resistance;
 }
 
 
