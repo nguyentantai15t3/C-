@@ -10,8 +10,9 @@ public:
 	Patient();
 	~Patient();
 	int InitResistance(int number_1, int number_2);
+	int InitMecdicien_Resistance(int number_1, int number_2);
 	void DoStart();
-	void TakeMedicine();
+	void TakeMedicine(int medicine_resistance);
 	int GetState();
 	void SetState(int state);
 	int Getm_virusList();

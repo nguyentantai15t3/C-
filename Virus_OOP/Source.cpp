@@ -23,7 +23,7 @@ void main()
 		cin.ignore();
 		if (t == 49) // 49 là kí tự 1 :D
 		{
-			patient.TakeMedicine();
+			patient.TakeMedicine(patient.InitMecdicien_Resistance(6,10)); // random thuốc 6-10 dame
 		}
 		else if (t == 48) //
 		{

@@ -10,7 +10,7 @@ using namespace std;
 Patient::Patient()
 {
 	this->DoStart();
-	this->m_resistance = this->InitResistance(1000, 3000);
+	this->m_resistance = this->InitResistance(1000, 3000);			// 1000->3000
 }
 
 Patient::~Patient()
@@ -21,6 +21,13 @@ inline int Patient::InitResistance(int number_1, int number_2)
 {
 	int rad =  rand() % (number_2 - number_1 + 1) + number_1;		// random máu của bệnh nhân
 	cout << "Resistance of Patient = " << rad << endl;
+	return rad;
+}
+
+int Patient::InitMecdicien_Resistance(int number_1, int number_2)
+{
+	int rad = rand() % (number_2 - number_1 + 1) + number_1;		// random máu của bệnh nhân
+	cout << "Mecdicien Resistance ("<<number_1<<","<<number_2<<") = " << rad << endl;
 	return rad;
 }
 
@@ -46,10 +53,8 @@ inline void Patient::DoStart()
 	}
 }
 
-void Patient::TakeMedicine()	// uống thuốc
+void Patient::TakeMedicine(int medicine_resistance)	// uống thuốc
 {
-	int medicine_resistance = rand() % 10 + 5;			// dame thuốc random từ 1-10
-	cout << "Medicien = " << medicine_resistance << " (Random 6-15)" << endl;
 	auto member_virusList = this->m_virusList.begin();	// khai báo con trỏ trỏ đến vị trí đầu list
 	int size = this->m_virusList.size();
 	for (int i = 0; i < size; i++)

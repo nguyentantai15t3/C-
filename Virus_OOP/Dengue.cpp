@@ -21,7 +21,7 @@ void Dengue_Virus::DoBorn()
 	{
 		this->m_protein = "NS3";
 		cout << this->m_protein << " ";
-		this->SetResistance(InitResistance(1,10));			// 1-10 máu
+		this->SetResistance(InitResistance(1,10));				// 1-10 máu
 	}
 	else if (number_name==4)
 	{
@@ -44,12 +44,12 @@ void Dengue_Virus::DoDie()
 
 list<Varus*> Dengue_Virus::DoClone()
 {
-	Varus *virus1 = new Dengue_Virus(this);
-	Varus *virus2 = new Dengue_Virus(this);
-	list<Varus*> clonevirus;
-	clonevirus.push_back(virus1);
+	Varus *virus1 = new Dengue_Virus(this); // sao chép
+	Varus *virus2 = new Dengue_Virus(this);	// sao chép thêm 1 con
+	list<Varus*> clonevirus;				// tạo list	
+	clonevirus.push_back(virus1);			// add 2 con vào
 	clonevirus.push_back(virus2);
-	return clonevirus;
+	return clonevirus;						// trả về list
 }
 
 string Dengue_Virus::Getm_protein()
