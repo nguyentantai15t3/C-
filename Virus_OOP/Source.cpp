@@ -26,7 +26,7 @@ void main()
 		{
 			patient.TakeMedicine(patient.InitMecdicien_Resistance(6,10)); // random thuốc 6-10 dame
 		}
-		else if (t == 48) //
+		else if (t == 48) // 0
 		{
 			exit(0);
 		}
