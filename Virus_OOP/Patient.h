@@ -15,9 +15,9 @@ public:
 	void TakeMedicine(int medicine_resistance);
 	int GetState();
 	void SetState(int state);
-	int Getm_virusList();
+	int GetVirusList();
 	int ResistanceOfAllVirus();
-	int Getm_resistance();
+	int GetResistance();
 
 private:
 	int m_resistance;

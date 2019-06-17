@@ -31,26 +31,28 @@ int Patient::InitMecdicien_Resistance(int number_1, int number_2)
 	return rad;
 }
 
-inline void Patient::DoStart()
+void Patient::DoStart()
 {
 	int value_random_virus = rand() % 11 + 10;	// random số lượng virut từ 10 -> 20 con
-	this->m_state = 1;							// trạng thái
+	this->m_state = 1;	// trạng thái
+	Varus* virus;
 	for (int i = 0; i < value_random_virus; i++)// random virut
 	{
 		int type_virus = rand() % 2 + 1;		// loại 1 hoặc 2
 		if (type_virus == 1)					// loại Flu
 		{	
 			cout << "Flu_Virus ";
-			Flu_Virus* flu_virus = new Flu_Virus();		// tạo virus Flu
-			this->m_virusList.push_back(flu_virus);		// thêm vào list virus
+			virus = new Flu_Virus();		// tạo virus Flu
+			this->m_virusList.push_back(virus);		// thêm vào list virus
 		}
 		else
 		{
 			cout << "Dengue_Virus ";
-			Dengue_Virus* dengua_virus = new Dengue_Virus();		// tạo virus Dengue
-			this->m_virusList.push_back(dengua_virus);				// thêm vào list virus
+			virus = new Dengue_Virus();		// tạo virus Dengue
+			this->m_virusList.push_back(virus);				// thêm vào list virus
 		}
 	}
+
 }
 
 void Patient::TakeMedicine(int medicine_resistance)	// uống thuốc
@@ -67,6 +69,7 @@ void Patient::TakeMedicine(int medicine_resistance)	// uống thuốc
 		else
 		{
 			list<Varus*> clonelist = (*member_virusList)->DoClone(); // lấy mảng clone
+	
 			this->m_virusList.insert(this->m_virusList.end(),clonelist.begin(),clonelist.end()); // add vào list hiện tại
 			member_virusList++;	// tăng con trỏ 
 		}
@@ -83,7 +86,7 @@ void Patient::SetState(int state)
 	this->m_state = state;
 }
 
-int Patient::Getm_virusList()
+int Patient::GetVirusList()
 {
 	return this->m_virusList.size();
 }
@@ -100,7 +103,7 @@ int Patient::ResistanceOfAllVirus()
 	return healthofvirus;
 }
 
-int Patient::Getm_resistance()
+int Patient::GetResistance()
 {
 	return this->m_resistance;
 }

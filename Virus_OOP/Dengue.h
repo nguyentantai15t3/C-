@@ -14,7 +14,7 @@ public:
 	void DoBorn() override;
 	void DoDie() override;
 	list<Varus *>  DoClone() override;
-	string Getm_protein();
+	string GetProtein();
 private:
 	string m_protein;
 };

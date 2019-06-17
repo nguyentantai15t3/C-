@@ -52,7 +52,7 @@ list<Varus*> Dengue_Virus::DoClone()
 	return clonevirus;						// trả về list
 }
 
-string Dengue_Virus::Getm_protein()
+string Dengue_Virus::GetProtein()
 {
 	return this->m_protein;
 }
