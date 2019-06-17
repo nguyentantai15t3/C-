@@ -24,9 +24,10 @@ void Varus::LoadADNInformation​()
 {
 	ifstream inFile;
 	inFile.open("ATGX.bin");
+	char* a;
 	if (inFile.is_open())
 	{
-		char a[100];
+		a = new char[100];
 		inFile >> a;
 		m_dna = (char *)a;
 		// cout << m_dna << endl;
