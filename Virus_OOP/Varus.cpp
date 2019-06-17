@@ -29,6 +29,7 @@ void Varus::LoadADNInformation​()
 		char a[100];
 		inFile >> a;
 		m_dna = (char *)a;
+		// cout << m_dna << endl;
 	}
 	else
 	{

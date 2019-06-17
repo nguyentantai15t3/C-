@@ -10,24 +10,29 @@ void main()
 	srand(time(NULL));
 	Patient patient;
 	char t = 0;
-	while (patient.GetState()==1 && patient.Getm_virusList()>0 || patient.ResistanceOfAllVirus()> patient.Getm_resistance())
+	while ((patient.GetState()==1 && patient.GetVirusList()>0))
 	{
-		cout << patient.Getm_virusList() << " virus exist in patients" << endl;
-		cout << "Health of all viruss is " << patient.ResistanceOfAllVirus() << endl;
+		if (patient.ResistanceOfAllVirus() > patient.GetResistance())
+		{
+			patient.SetState(0);
+			break;
+		}
+		cout << patient.GetVirusList() << " virus exist in patients" << endl;
+		cout << "Health of all viruss is " << patient.ResistanceOfAllVirus() << endl << endl;
 		cout << "Take Medicine (0 = NO, 1 = YES) : ";
 		cin >> t;
 		cin.ignore();
 		if (t == 49) // 49 là kí tự 1 :D
 		{
-			patient.TakeMedicine();
+			patient.TakeMedicine(patient.InitMecdicien_Resistance(6,10)); // random thuốc 6-10 dame
 		}
-		else if (t == 48) //
+		else if (t == 48) // 0
 		{
 			exit(0);
 		}
 		else
 		{
-			cout << "Error, Input again";
+			cout << "Error, Input again" << endl;
 			continue;
 		}
 	}

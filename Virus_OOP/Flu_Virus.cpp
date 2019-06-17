@@ -41,10 +41,10 @@ void Flu_Virus::DoDie()
 
 list<Varus *> Flu_Virus::DoClone()
 {
-	Varus *virus = new Flu_Virus(this);
-	list<Varus*> clonevirus;
-	clonevirus.push_back(virus);
-	return clonevirus;
+	Varus *virus = new Flu_Virus(this); // sao chép
+	list<Varus*> clonevirus; // tạo list mới
+	clonevirus.push_back(virus); // add vào
+	return clonevirus; // trả về list
 }
 
 int Flu_Virus::InitResistance(int number_1,int number_2)
