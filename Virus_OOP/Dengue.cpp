@@ -1,6 +1,7 @@
 ﻿#include "stdafx.h"
 #include "Dengue.h"
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -23,7 +24,7 @@ void Dengue_Virus::DoBorn()
 		cout << this->m_protein << " ";
 		this->SetResistance(InitResistance(1,10));				// 1-10 máu
 	}
-	else if (number_name==4)
+	else if (number_name == 4)
 	{
 		this->m_protein = "NS5";
 		cout << this->m_protein << " ";
@@ -44,21 +45,17 @@ void Dengue_Virus::DoDie()
 
 list<Varus*> Dengue_Virus::DoClone()
 {
-	Varus *virus1 = new Dengue_Virus(this); // sao chép
-	Varus *virus2 = new Dengue_Virus(this);	// sao chép thêm 1 con
+	Varus *virus_1 = new Dengue_Virus(this); // sao chép
+	Varus *virus_2 = new Dengue_Virus(this);	// sao chép thêm 1 con
 	list<Varus*> clonevirus;				// tạo list	
-	clonevirus.push_back(virus1);			// add 2 con vào
-	clonevirus.push_back(virus2);
+	clonevirus.push_back(virus_1);			// add 2 con vào
+	clonevirus.push_back(virus_2);
 	return clonevirus;						// trả về list
 }
 
-string Dengue_Virus::GetProtein()
+Dengue_Virus::Dengue_Virus(const Dengue_Virus * dengue_virus):Varus(dengue_virus)
 {
-	return this->m_protein;
-}
-
-Dengue_Virus::Dengue_Virus(Dengue_Virus * dengue_virus):Varus(dengue_virus)
-{
+	m_protein = new char[4];
 	this->m_protein = dengue_virus->m_protein;
 }
 
