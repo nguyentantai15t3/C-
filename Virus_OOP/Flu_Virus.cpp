@@ -13,7 +13,7 @@ Flu_Virus::~Flu_Virus()
 {
 }
 
-Flu_Virus::Flu_Virus(const Flu_Virus * flu_virus):Varus(flu_virus)
+Flu_Virus::Flu_Virus(const Flu_Virus* flu_virus):Varus(flu_virus)
 {
 	this->color = flu_virus->color;
 }
@@ -21,8 +21,8 @@ Flu_Virus::Flu_Virus(const Flu_Virus * flu_virus):Varus(flu_virus)
 void Flu_Virus::DoBorn()
 {
 	this->LoadADNInformation​();
-	this->color = rand() % 2 + 1;
-	if (this->color == 1)
+	this->color = rand() % 2;
+	if (this->color == 0)
 	{
 		cout << "Red_color " ;
 		this->SetResistance(InitResistance(10, 20)); // 10-20 máu
@@ -41,7 +41,7 @@ void Flu_Virus::DoDie()
 
 list<Varus *> Flu_Virus::DoClone()
 {
-	Varus *virus = new Flu_Virus(this); // sao chép
+	Flu_Virus *virus = new Flu_Virus(this); // sao chép
 	list<Varus*> clonevirus; // tạo list mới
 	clonevirus.push_back(virus); // add vào
 	return clonevirus; // trả về list

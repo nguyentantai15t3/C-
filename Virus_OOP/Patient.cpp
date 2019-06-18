@@ -15,6 +15,13 @@ Patient::Patient()
 
 Patient::~Patient()
 {
+	auto member_virusList = this->m_virusList.begin();	// khai báo con trỏ trỏ đến vị trí đầu list
+	int size = this->m_virusList.size();
+	for (int i = 0; i < size; i++)
+	{
+		(*member_virusList)->DoDie();
+		member_virusList++;
+	}
 }
 
 inline int Patient::InitResistance(int number_1, int number_2)
@@ -61,7 +68,7 @@ void Patient::TakeMedicine(int medicine_resistance)	// uống thuốc
 	int size = this->m_virusList.size();
 	for (int i = 0; i < size; i++)
 	{
-		if ((*member_virusList)->ReduceResistance​(medicine_resistance) <= 0) // máu virus <=0
+		if ((*member_virusList)->ReduceResistance​(medicine_resistance)) // máu virus <=0
 		{
 			(*member_virusList)->DoDie();
 			this->m_virusList.erase(member_virusList++);		// xóa khỏi list và tăng con trỏ lên

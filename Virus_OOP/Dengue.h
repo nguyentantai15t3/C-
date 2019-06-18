@@ -15,5 +15,5 @@ public:
 	void DoDie() override;
 	list<Varus *>  DoClone() override;
 private:
-	char* m_protein;
+	char m_protein[4];
 };
