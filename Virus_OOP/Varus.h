@@ -11,9 +11,9 @@ private:
 public:
 	Varus();
 	Varus(const Varus *varus);
-	~Varus();
+	virtual ~Varus();
 	void LoadADNInformation​();
-	int ReduceResistance​(int medicine_resistance);
+	bool ReduceResistance​(int medicine_resistance);
 	void SetResistance(int m_resistance);
 	int GetResistance();
 	virtual void DoBorn() {};
